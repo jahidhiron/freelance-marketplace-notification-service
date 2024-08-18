@@ -23,17 +23,6 @@ async function startQueues(): Promise<void> {
   const emailChannel = (await createConnection()) as Channel;
   await consumeAuthEmailMessages(emailChannel);
   await consumeOrderEmailMessages(emailChannel);
-
-  // const verificationLink = `${config.CLIENT_URL}/confirm_email?v_token=4d54s4d5s4d5s45`;
-  // const messageDetails: IEmailMessageDetails = {
-  //   receiverEmail: `${config.SENDER_EMAIL}`,
-  //   verifyLink: verificationLink,
-  //   template: 'verifyEmail'
-  // };
-
-  // await emailChannel.assertExchange('jobber-email-notification', 'direct');
-  // const message = JSON.stringify(messageDetails);
-  // emailChannel.publish('jobber-email-notification', 'auth-email', Buffer.from(message));
 }
 
 function startElasticSearch(): void {}
