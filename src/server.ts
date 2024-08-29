@@ -17,6 +17,7 @@ export function start(app: Application): void {
   app.use('', healthRoutes());
   startQueues();
   startElasticSearch();
+  log.info(`Elasticsearch url - ${config.ELASTIC_SEARCH_URL}`);
 }
 
 async function startQueues(): Promise<void> {
